@@ -6,18 +6,18 @@ import CoreLocation
 final class OpenWeatherMapSDKTests: XCTestCase {
     
     var weather: ResponseBody?
-    var weatherManager = OpenWeatherMapSDK()
+    var weatherManager = OpenWeatherMapSDK(openWeatherMapAPIKey: "ae1c4977a943a50eaa7da25e6258d8b2")
     
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(OpenWeatherMapSDK().text, "Hello, World!")
+        XCTAssertNotEqual(weatherManager.openWeatherMapAPIKey, "")
     }
     
     /// This test case checks if the API key used by the OpenWeatherSDK is valid
     func testAPIKeyIsValid() {
-        XCTAssertNotNil(openWeatherMapAPIKey.isEmpty)
+        XCTAssertNotNil(weatherManager.openWeatherMapAPIKey)
     }
     
     /// This test case validates if the location name in the weather response matches the requested location
@@ -26,7 +26,7 @@ final class OpenWeatherMapSDKTests: XCTestCase {
         let location = CLLocationCoordinate2DMake(23.0225, 72.5714)
         do {
             self.weather = try await
-            self.weatherManager.getCurrentWeather(withopenweathermapapikey: openWeatherMapAPIKey, latitude: location.latitude, longitude: location.longitude)
+            self.weatherManager.getCurrentWeather(withopenweathermapapikey: weatherManager.openWeatherMapAPIKey, latitude: location.latitude, longitude: location.longitude)
         } catch {
             print("Error getting weather: \(error)")
             XCTAssertNil(error)
@@ -55,3 +55,4 @@ final class OpenWeatherMapSDKTests: XCTestCase {
         }
     }
 }
+

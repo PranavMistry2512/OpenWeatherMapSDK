@@ -9,15 +9,15 @@ import Foundation
 import CoreLocation
 
 @available(iOS 13.0.0, *)
-public let openWeatherMapAPIKey = "ae1c4977a943a50eaa7da25e6258d8b2"
 public struct OpenWeatherMapSDK {
-    public private(set) var text = "Hello, World!"
+    public private(set) var openWeatherMapAPIKey = ""
 
-    public init() {
+    public init(openWeatherMapAPIKey: String) {
+        self.openWeatherMapAPIKey = openWeatherMapAPIKey
     }
     
     @available(iOS 13.0.0, *)
-    func getCurrentWeather(withopenweathermapapikey openweathermapapikey: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees) async throws -> ResponseBody? {
+    public func getCurrentWeather(withopenweathermapapikey openweathermapapikey: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees) async throws -> ResponseBody? {
         guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=\(openweathermapapikey)&units=metric") else {
             print("Missing URL")
             return nil
