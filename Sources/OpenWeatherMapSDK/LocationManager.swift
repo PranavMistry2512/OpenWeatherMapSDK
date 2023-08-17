@@ -16,7 +16,7 @@ public class LocationManager: NSObject, ObservableObject, CLLocationManagerDeleg
     @Published var isLoading = false
     public var locationCity: String = ""
     
-    override init() {
+    public override init() {
         super.init()
         manager.delegate = self
     }
