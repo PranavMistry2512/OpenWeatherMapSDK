@@ -18,7 +18,7 @@ public struct OpenWeatherMapSDK {
     }
     
     @available(iOS 13.0.0, *)
-    public mutating func getCurrentWeather(withopenweathermapapikey openweathermapapikey: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees) async throws -> ResponseBody? {
+    public static func getCurrentWeather(withopenweathermapapikey openweathermapapikey: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees) async throws -> ResponseBody? {
         guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=\(openweathermapapikey)&units=metric") else {
             print("Missing URL")
             return nil
