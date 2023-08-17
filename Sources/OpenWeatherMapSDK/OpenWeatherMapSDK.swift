@@ -40,7 +40,7 @@ public struct OpenWeatherMapSDK {
 
 public struct ResponseBody: Decodable {
     public var coord: CoordinatesResponse
-    public var weather: [WeatherResponse]
+    var weather: [WeatherResponse]
     public var main: MainResponse
     public var name: String
     public var wind: WindResponse
