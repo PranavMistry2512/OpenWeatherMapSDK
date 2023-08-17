@@ -12,8 +12,8 @@ import CoreLocation
 public class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     let manager = CLLocationManager()
     
-    @Published var location: CLLocationCoordinate2D?
-    @Published var isLoading = false
+    @Published public var location: CLLocationCoordinate2D?
+    @Published public var isLoading = false
     public var locationCity: String = ""
     
     public override init() {
