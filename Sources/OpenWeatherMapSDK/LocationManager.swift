@@ -21,7 +21,7 @@ public class LocationManager: NSObject, ObservableObject, CLLocationManagerDeleg
         manager.delegate = self
     }
     
-    func requestLocation() {
+    public func requestLocation() {
         isLoading = true
         manager.requestLocation()
     }
