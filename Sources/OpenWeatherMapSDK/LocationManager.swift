@@ -14,7 +14,7 @@ public class LocationManager: NSObject, ObservableObject, CLLocationManagerDeleg
     
     @Published public var location: CLLocationCoordinate2D?
     @Published public var isLoading = false
-    public var locationCity: String = ""
+    public var locationCity: String?
     
     public override init() {
         super.init()
