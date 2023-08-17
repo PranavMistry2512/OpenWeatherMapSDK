@@ -11,6 +11,7 @@ import CoreLocation
 @available(iOS 13.0.0, *)
 public struct OpenWeatherMapSDK {
     public private(set) var openWeatherMapAPIKey = ""
+    public var weather: ResponseBody?
 
     public init(openWeatherMapAPIKey: String) {
         self.openWeatherMapAPIKey = openWeatherMapAPIKey
