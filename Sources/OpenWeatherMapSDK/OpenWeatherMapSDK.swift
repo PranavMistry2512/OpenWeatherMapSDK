@@ -42,44 +42,44 @@ public struct ResponseBody: Decodable {
     var coord: CoordinatesResponse
     var weather: [WeatherResponse]
     var main: MainResponse
-    var name: String
+    public var name: String
     var wind: WindResponse
 
-    struct CoordinatesResponse: Decodable {
-        var lon: Double
-        var lat: Double
+    public struct CoordinatesResponse: Decodable {
+        public var lon: Double
+        public var lat: Double
     }
 
-    struct WeatherResponse: Decodable {
-        var id: Double
-        var main: String
-        var description: String
-        var icon: String
+    public struct WeatherResponse: Decodable {
+        public var id: Double
+        public var main: String
+        public var description: String
+        public var icon: String
     }
 
-    struct MainResponse: Decodable {
-        var temp: Double
-        var feels_like: Double
-        var temp_min: Double
-        var temp_max: Double
-        var pressure: Double
-        var humidity: Double
+    public struct MainResponse: Decodable {
+        public var temp: Double
+        public var feels_like: Double
+        public var temp_min: Double
+        public var temp_max: Double
+        public var pressure: Double
+        public var humidity: Double
     }
     
-    struct WindResponse: Decodable {
-        var speed: Double
-        var deg: Double
+    public struct WindResponse: Decodable {
+        public var speed: Double
+        public var deg: Double
     }
 }
 
 extension ResponseBody.MainResponse {
-    var feelsLike: Double { return feels_like }
-    var temprature: Double { return temp }
-    var tempMin: Double { return temp_min }
-    var tempMax: Double { return temp_max }
-    var tempratureFar: Double { return celsiusToFahrenheit(c: temp) }
-    var tempMinFar: Double { return celsiusToFahrenheit(c: temp_min) }
-    var tempMaxFar: Double { return celsiusToFahrenheit(c: temp_max) }
+    public var feelsLike: Double { return feels_like }
+    public var temprature: Double { return temp }
+    public var tempMin: Double { return temp_min }
+    public var tempMax: Double { return temp_max }
+    public var tempratureFar: Double { return celsiusToFahrenheit(c: temp) }
+    public var tempMinFar: Double { return celsiusToFahrenheit(c: temp_min) }
+    public var tempMaxFar: Double { return celsiusToFahrenheit(c: temp_max) }
 }
 
 extension ResponseBody.MainResponse {
