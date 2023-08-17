@@ -27,7 +27,6 @@ public struct Daily : Codable {
     public let uvi : Double?
 
 	enum CodingKeys: String, CodingKey {
-
 		case dt = "dt"
 		case sunrise = "sunrise"
 		case sunset = "sunset"
@@ -69,5 +68,4 @@ public struct Daily : Codable {
 		pop = try values.decodeIfPresent(Double.self, forKey: .pop)
 		uvi = try values.decodeIfPresent(Double.self, forKey: .uvi)
 	}
-
 }

@@ -13,7 +13,6 @@ public struct Feels_like : Codable {
     public let morn : Double?
 
 	enum CodingKeys: String, CodingKey {
-
 		case day = "day"
 		case night = "night"
 		case eve = "eve"
@@ -27,5 +26,4 @@ public struct Feels_like : Codable {
 		eve = try values.decodeIfPresent(Double.self, forKey: .eve)
 		morn = try values.decodeIfPresent(Double.self, forKey: .morn)
 	}
-
 }

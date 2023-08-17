@@ -24,7 +24,6 @@ public struct Current : Codable {
     public var tempFar: Double?
 
 	enum CodingKeys: String, CodingKey {
-
 		case dt = "dt"
 		case sunrise = "sunrise"
 		case sunset = "sunset"
@@ -59,7 +58,6 @@ public struct Current : Codable {
 		weather = try values.decodeIfPresent([Weather].self, forKey: .weather)
         tempFar = celsiusToFahrenheit(c: temp!)
 	}
-
 }
 
 extension Current {

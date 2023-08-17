@@ -17,7 +17,6 @@ public struct Temp : Codable {
     public var tempMaxFar: Double?
 
 	enum CodingKeys: String, CodingKey {
-
 		case day = "day"
 		case min = "min"
 		case max = "max"

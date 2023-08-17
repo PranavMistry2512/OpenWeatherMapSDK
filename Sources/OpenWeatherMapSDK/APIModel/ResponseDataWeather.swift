@@ -15,7 +15,6 @@ public struct ResponseDataWeather : Codable {
     public let daily : [Daily]?
 
 	enum CodingKeys: String, CodingKey {
-
 		case lat = "lat"
 		case lon = "lon"
 		case timezone = "timezone"
@@ -33,7 +32,6 @@ public struct ResponseDataWeather : Codable {
 		current = try values.decodeIfPresent(Current.self, forKey: .current)
 		daily = try values.decodeIfPresent([Daily].self, forKey: .daily)
 	}
-
 }
 
 extension ResponseDataWeather {

@@ -14,6 +14,7 @@ public class LocationManager: NSObject, ObservableObject, CLLocationManagerDeleg
     
     @Published var location: CLLocationCoordinate2D?
     @Published var isLoading = false
+    public var locationCity: String = ""
     
     override init() {
         super.init()
@@ -28,10 +29,19 @@ public class LocationManager: NSObject, ObservableObject, CLLocationManagerDeleg
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         location = locations.last?.coordinate
         isLoading = false
+        fetchLocationCity { city, error in
+            guard let city = city, error == nil else { return }
+            print(city)
+            self.locationCity = city
+        }
     }
     
     public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error getting location", error)
         isLoading = false
+    }
+    
+    func fetchLocationCity(completion: @escaping (_ city: String?, _ error: Error?) -> ()) {
+        CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: location!.latitude, longitude: location!.longitude)) { completion($0?.first?.locality, $1) }
     }
 }

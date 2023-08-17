@@ -13,7 +13,6 @@ public struct Weather : Codable {
     public let icon : String?
 
 	enum CodingKeys: String, CodingKey {
-
 		case id = "id"
 		case main = "main"
 		case description = "description"
@@ -27,5 +26,4 @@ public struct Weather : Codable {
 		description = try values.decodeIfPresent(String.self, forKey: .description)
 		icon = try values.decodeIfPresent(String.self, forKey: .icon)
 	}
-
 }
