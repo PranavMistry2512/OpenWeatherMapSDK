@@ -11,7 +11,6 @@ import CoreLocation
 @available(iOS 13.0.0, *)
 public struct OpenWeatherMapSDK {
     public private(set) var openWeatherMapAPIKey = ""
-    public private(set) var weatherResponse: ResponseBody?
     public private(set) var locationManager = LocationManager()
 
     public init(openWeatherMapAPIKey: String) {
@@ -35,7 +34,6 @@ public struct OpenWeatherMapSDK {
         }
         
         let decodedData = try JSONDecoder().decode(ResponseBody.self, from: data)
-        self.weatherResponse = decodedData
         return decodedData
     }
 }
