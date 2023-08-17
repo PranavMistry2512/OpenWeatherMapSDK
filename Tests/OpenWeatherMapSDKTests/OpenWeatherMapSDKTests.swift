@@ -5,7 +5,7 @@ import CoreLocation
 @available(iOS 13.0.0, *)
 final class OpenWeatherMapSDKTests: XCTestCase {
     
-    var weather: ResponseBody?
+    var weather: ResponseDataWeather?
     var weatherManager = OpenWeatherMapSDK(openWeatherMapAPIKey: "ae1c4977a943a50eaa7da25e6258d8b2")
     
     func testExample() throws {
@@ -26,7 +26,7 @@ final class OpenWeatherMapSDKTests: XCTestCase {
         let location = CLLocationCoordinate2DMake(23.0225, 72.5714)
         do {
             self.weather = try await
-            self.weatherManager.getCurrentWeather(withopenweathermapapikey: weatherManager.openWeatherMapAPIKey, latitude: location.latitude, longitude: location.longitude)
+            OpenWeatherMapSDK.getCurrentWeather(withopenweathermapapikey: weatherManager.openWeatherMapAPIKey, latitude: location.latitude, longitude: location.longitude)
         } catch {
             print("Error getting weather: \(error)")
             XCTAssertNil(error)
@@ -44,7 +44,7 @@ final class OpenWeatherMapSDKTests: XCTestCase {
         let location = CLLocationCoordinate2DMake(23.0225, 72.5714)
         do {
             self.weather = try await
-            self.weatherManager.getCurrentWeather(withopenweathermapapikey: "INVALID_API_KEY", latitude: location.latitude, longitude: location.longitude)
+            OpenWeatherMapSDK.getCurrentWeather(withopenweathermapapikey: "INVALID_API_KEY", latitude: location.latitude, longitude: location.longitude)
         } catch {
             print("Error getting weather: \(error)")
             XCTAssertNotNil(error)

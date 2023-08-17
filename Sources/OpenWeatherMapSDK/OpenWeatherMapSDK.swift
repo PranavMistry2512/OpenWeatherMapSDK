@@ -18,8 +18,8 @@ public struct OpenWeatherMapSDK {
     }
     
     @available(iOS 13.0.0, *)
-    public static func getCurrentWeather(withopenweathermapapikey openweathermapapikey: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees) async throws -> ResponseBody? {
-        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=\(openweathermapapikey)&units=metric") else {
+    public static func getCurrentWeather(withopenweathermapapikey openweathermapapikey: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees) async throws -> ResponseDataWeather? {
+        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/onecall?units=metric&exclude=minutely,hourly&appid=\(openweathermapapikey)&lat=\(latitude)&lon=\(longitude)") else {
             print("Missing URL")
             return nil
         }
@@ -33,7 +33,7 @@ public struct OpenWeatherMapSDK {
             return nil
         }
         
-        let decodedData = try JSONDecoder().decode(ResponseBody.self, from: data)
+        let decodedData = try JSONDecoder().decode(ResponseDataWeather.self, from: data)
         return decodedData
     }
 }
@@ -87,4 +87,3 @@ extension ResponseBody.MainResponse {
        return (c * 9/5) + 32
     }
 }
-
