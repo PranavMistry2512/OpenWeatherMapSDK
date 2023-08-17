@@ -31,7 +31,6 @@ public class LocationManager: NSObject, ObservableObject, CLLocationManagerDeleg
         isLoading = false
         fetchLocationCity { city, error in
             guard let city = city, error == nil else { return }
-            print(city)
             self.locationCity = city
         }
     }
