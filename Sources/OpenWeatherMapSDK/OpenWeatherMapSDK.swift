@@ -42,7 +42,7 @@ public struct ResponseBody: Decodable {
     var coord: CoordinatesResponse
     var weather: [WeatherResponse]
     var main: MainResponse
-    public var name: String
+    var name: String
     var wind: WindResponse
 
     struct CoordinatesResponse: Decodable {
@@ -57,7 +57,7 @@ public struct ResponseBody: Decodable {
         var icon: String
     }
 
-    public struct MainResponse: Decodable {
+    struct MainResponse: Decodable {
         var temp: Double
         var feels_like: Double
         var temp_min: Double
@@ -73,13 +73,13 @@ public struct ResponseBody: Decodable {
 }
 
 extension ResponseBody.MainResponse {
-    public var feelsLike: Double { return feels_like }
-    public var temprature: Double { return temp }
-    public var tempMin: Double { return temp_min }
-    public var tempMax: Double { return temp_max }
-    public var tempratureFar: Double { return celsiusToFahrenheit(c: temp) }
-    public var tempMinFar: Double { return celsiusToFahrenheit(c: temp_min) }
-    public var tempMaxFar: Double { return celsiusToFahrenheit(c: temp_max) }
+    var feelsLike: Double { return feels_like }
+    var temprature: Double { return temp }
+    var tempMin: Double { return temp_min }
+    var tempMax: Double { return temp_max }
+    var tempratureFar: Double { return celsiusToFahrenheit(c: temp) }
+    var tempMinFar: Double { return celsiusToFahrenheit(c: temp_min) }
+    var tempMaxFar: Double { return celsiusToFahrenheit(c: temp_max) }
 }
 
 extension ResponseBody.MainResponse {
