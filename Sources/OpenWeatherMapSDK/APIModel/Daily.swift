@@ -25,6 +25,7 @@ public struct Daily : Codable {
     public let clouds : Int?
     public let pop : Double?
     public let uvi : Double?
+    public var date : String?
 
 	enum CodingKeys: String, CodingKey {
 		case dt = "dt"
@@ -67,5 +68,17 @@ public struct Daily : Codable {
 		clouds = try values.decodeIfPresent(Int.self, forKey: .clouds)
 		pop = try values.decodeIfPresent(Double.self, forKey: .pop)
 		uvi = try values.decodeIfPresent(Double.self, forKey: .uvi)
+        date = timeStampToDate(timestamp: dt!)
 	}
+}
+
+extension Daily {
+    func timeStampToDate(timestamp: Int) -> String {
+        let date = Date(timeIntervalSince1970: Double(timestamp))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.medium //Set date style
+        dateFormatter.timeZone = .current
+        let localDate = dateFormatter.string(from: date)
+        return localDate
+    }
 }
