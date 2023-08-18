@@ -15,7 +15,7 @@ public struct Current : Codable {
     public let pressure : Int?
     public let humidity : Int?
     public let dew_point : Double?
-    public let uvi : Int?
+    public let uvi : Double?
     public let clouds : Int?
     public let visibility : Int?
     public let wind_speed : Double?
@@ -50,7 +50,7 @@ public struct Current : Codable {
 		pressure = try values.decodeIfPresent(Int.self, forKey: .pressure)
 		humidity = try values.decodeIfPresent(Int.self, forKey: .humidity)
 		dew_point = try values.decodeIfPresent(Double.self, forKey: .dew_point)
-		uvi = try values.decodeIfPresent(Int.self, forKey: .uvi)
+		uvi = try values.decodeIfPresent(Double.self, forKey: .uvi)
 		clouds = try values.decodeIfPresent(Int.self, forKey: .clouds)
 		visibility = try values.decodeIfPresent(Int.self, forKey: .visibility)
 		wind_speed = try values.decodeIfPresent(Double.self, forKey: .wind_speed)
